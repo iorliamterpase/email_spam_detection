@@ -1,12 +1,12 @@
-##** EMAIL SPAM DETECTION PROJERCT**
+##EMAIL SPAM DETECTION PROJERCT**
 
 This is a ML deployment project where I am deploying my Email Spam Classifier model into live production.
 
-##**STEPS TO FOLLOW**
+##STEPS TO FOLLOW**
 
 clone this repository and cd into it
 
-##**create and activate an environment using the following command**
+##create and activate an environment using the following command**
 
 python -m venv venv
 
@@ -16,7 +16,7 @@ python -m pip install --upgrade pip
 
 pip install requirements.txt
 
-##**MODELS**
+##MODELS**
 
 download models from the models folder in this repository
 
