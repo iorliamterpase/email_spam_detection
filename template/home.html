@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Detector</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .spam {
+            color: #e74c3c;
+        }
+
+        .not-spam {
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <h1>📧 Spam Detection Web App</h1>
+    <form method="POST" action="/predict">
+        <textarea rows="12" name="content" placeholder="Enter your email here..." autocomplete="off">{{ email }}</textarea>
+        <div class="button-group">
+            <button type="submit">Analyze</button>
+            <a href="/">Reset</a>
+        </div>
+    </form>
+
+    {% if prediction == 1 %}
+        <div class="result spam">🚨 SPAM</div>
+    {% elif prediction == -1 %}
+        <div class="result not-spam">✅ NOT SPAM</div>
+    {% endif %}
+</body>
+</html>
